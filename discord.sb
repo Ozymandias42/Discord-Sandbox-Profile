@@ -35,18 +35,18 @@
 ;;    (remote udp6 "*:53")
 ;;)
 
-(allow file-issue-extension (path "/Users/fabian/Library/Caches/com.hnc.Discord"))
+(allow file-issue-extension (regex #"/Users/[a-zA-Z]+/Library/Caches/com.hnc.Discord"))
 
 (allow file-read*
     (subpath "/Library/")
     (subpath "/System/Library")
     (subpath "/private/var")
     (path "/Library/Application Support/CrashReporter/SubmitDiagInfo.domains")
-    (path "/Users/fabian/Library/Preferences/com.apple.symbolichotkeys.plist")
+    (regex "/Users/[a-zA-Z]+/Library/Preferences/com.apple.symbolichotkeys.plist")
     (path "/Library/Preferences/com.apple.security.plist")
     (regex "^/Users/[a-zA-Z]+/Library/Preferences/com.apple.security.plist")
     (path "/private/var/db/mds/messages/503/se_SecurityMessages") ;;NOTE: 503 is a user ID. When in doubt, change to regex and exchange 503 with [0-9]+
-    (regex "^/Users/[a-zA-Z]+/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist")
+    (regex #"^/Users/[a-zA-Z]+/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist")
     (regex #"^/Users/[a-zA-Z]+/Library/Keyboard Layouts")
     (regex #"^/Users/[a-zA-Z]+/Library/Input Methods")
     (regex #"^/Users/[a-zA-Z]+/Library/Spelling")
@@ -67,7 +67,7 @@
     (regex #"/Users/[a-zA-Z]+/Library/Saved Application State/com\.hnc\.Discord\.savedState.*")
     (regex #"/Users/[a-zA-Z]+/Library/Caches/com\.hnc\.Discord.*") 
     (regex #"/Users/[a-zA-Z]+/Library/Application Support/discord.*")
-    (subpath "/Users/fabian/Library/Application Support/discord")
+    (regex #"/Users/[a-zA-Z]+/Library/Application Support/discord")
 )
 
 
