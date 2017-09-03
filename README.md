@@ -12,8 +12,6 @@ To change this edit this line:
 
 This guide further assumes your user-ID is 503. If it's not. Find out what it is by issuing `id` and change lines containing 503 accordingly.
 
-[TOC]
-
 ##How to start Discord using this profile.
 
 To start Discord using this profile put it in a location of your choice and change this line in the profile accordingly:
