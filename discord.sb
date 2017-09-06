@@ -10,6 +10,7 @@
 (allow file-ioctl (path "/dev/ttys000"))
 ;;(trace "discord-trace.sb")
 (allow system-socket)
+(allow lsopen) ;;required for opening links
 (allow user-preference-read) ;;Required to use cfprefs in together with sandboxd
 (allow device-camera)
 (allow device-microphone)
@@ -107,6 +108,8 @@
 )
 
 (allow mach-lookup 
+	(global-name "com.apple.universalaccessAuthWarn")
+	(global-name "com.apple.coreservices.quarantine-resolver") ;;Neccessary to allow Discord-Helper to open links.
     (global-name "com.apple.coresymbolicationd")
     (global-name "com.apple.usymptomsd")
     (global-name "com.apple.ReportCrash")
