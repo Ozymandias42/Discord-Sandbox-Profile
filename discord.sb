@@ -2,7 +2,7 @@
 (deny default)
 (import "/System/Library/Sandbox/Profiles/bsd.sb") ;;Required to enable loading of .dylib's
 (allow process-exec* 
-    (regex #"^/Users/[a-zA-Z]+/Applications/Discord.app/")
+    (regex #"^/Users/[a-zA-Z]+/Applications/Discord.app/.*")
 )
 (allow process-fork)
 (allow signal)
@@ -92,10 +92,13 @@
     (iokit-registry-entry-class "nvFermiGLContext")
     (iokit-registry-entry-class "nvSharedUserClient")
 )
+(allow ipc-posix-shm*
+	(ipc-posix-name-regex #"^CFPBS:[A-Z0-9]+:")
+	(ipc-posix-name-regex #"^AudioIO[0-9]+")
+)
 
 (allow ipc-posix-shm-read-data 
-    (ipc-posix-name "/tmp/com.apple.csseed.191")
-    (ipc-posix-name "CFPBS:186A7:")
+    (ipc-posix-name-regex #"/tmp/com\.apple\.csseed\.[0-9]+")
     (ipc-posix-name "FNetwork.defaultStorageSession")
     (ipc-posix-name "apple.cfprefs.503v1") ;;<=NOTE: 503 is a user-ID, for users with different IDs it might be smarter to use ipc-posix-name-regex instead.
     (ipc-posix-name "apple.cfprefs.daemonv1")
