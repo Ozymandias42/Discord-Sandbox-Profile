@@ -1,5 +1,6 @@
 # Discord Sandbox Profile for Apple's Sandbox
 
+## NOTE: DEFUNCT SINCE 2019
 **NOTE:**  
 This guide assumes you're running Discord from $HOME/Applications/Discord.app rather than /Applications/Discord.app  
 To change this edit this line:  
